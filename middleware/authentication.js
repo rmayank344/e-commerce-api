@@ -25,9 +25,8 @@ const validate_auth_token = async (req, res, next) => {
       if (err.name === "TokenExpiredError") {
         return response_handler.send_error_response(
           res,
-          "Auth token has expired. Please click on url.",
+          "Auth token has expired.",
           401,
-          { refresh_auth_token_url: REFRESH_AUTH_TOKEN_URL }
         );
       }
       return response_handler.send_error_response(
